@@ -1,4 +1,4 @@
-# Magic Methods: Special methods that allow us to define how objects of a class behave with built-in operations. 
+# Magic Methods: Special methods that allow us to define how objects of a class behave in response to built-in operations. 
 # They are implicitly called by Python in response to certain operations.
 # They can be over-ridden to customize the behaviour of an object.
 # Also known as dunder methods.
@@ -18,8 +18,8 @@ class Vector:
         return f'({self.x}, {self.y})'
     
     def __len__(self):
-        # Behaviour for the len(obj)
-        # return (self.x**2 + self.y**2)**0.5 # len() cannot return float should always int.
+        # Behaviour for the len() of the object
+        # return (self.x**2 + self.y**2)**0.5 # len() cannot return float type, it should always be of int type.
         return int((self.x**2 + self.y**2)**0.5)
     
     def __add__(self, other):
@@ -29,7 +29,7 @@ class Vector:
         raise TypeError('Operand must be of type Vector')
     
     def __getitem__(self, index):
-        # Behaviour for accessing elements with 'square brackets' next to an object. Syntax: obj[key]
+        # Behaviour for accessing elements with 'square brackets'. Syntax: obj[key]
         if index == 0:
             return self.x
         elif index == 1:
